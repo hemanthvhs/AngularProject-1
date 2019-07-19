@@ -1,20 +1,124 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div class="jumbotron">
+  <div class="container">
+    <div class="row col-xs-6">
+      <form>
+        <div class="form-group">
+          <label for="requestno" class="control-label">Request Number</label>
+          <input id="requestno" type="text" class="form-control" placeholder="Request Number">
+        </div>
 
+        <div class="form-group">
+            <label for="partdesc" class="control-label">Part Description</label>
+           <textarea id="partdesc" type="textarea" class="form-control" placeholder="Part Description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="reasonforreq" class="control-label">Reason For Request</label>
+            <select id="reasonforreq" class="form-control">
+              <option value=""></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="partsapno" class="control-label">Part SAP Number</label>
+            <input id="partsapno" type="text" class="form-control" placeholder="Part SAP Number">
+        </div>
+
+        <div class="form-group">
+            <label for="bdpono" class="control-label">BD PO Number</label>
+            <input id="bdpono" type="text" class="form-control" placeholder="BD PO Number">
+        </div>
+
+        <div class="form-group">
+            <label for="vendorbatchno" class="control-label">Vendors Batch Number</label>
+            <input id="vendorbatchno" type="text" class="form-control" placeholder="Vendors Batch Number">
+        </div>
+
+        <div class="form-group">
+            <label for="associatedtoolno" class="control-label">Associated Tool Number</label>
+            <input id="associatedtoolno" type="text" class="form-control" placeholder="Associated Tool Number">
+        </div>
+
+        <div class="form-group">
+            <label for="productdesc" class="control-label">Product Description</label>
+            <select id="productdesc" class="form-control">
+              <option value=""></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="colour" class="control-label">Colour</label>
+            <select id="colour" class="form-control">
+              <option value=""></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="drawingno" class="control-label">Drawing Number</label>
+            <input id="drawingno" type="text" class="form-control" placeholder="Drawing Number">
+        </div>
+
+        <div class="form-group">
+            <label for="drawingrevision" class="control-label">Drawing Revision</label>
+            <input id="drawingrevision" type="text" class="form-control" placeholder="Drawing Revision">
+        </div>
+
+        <div class="form-group">
+            <label for="attachments" class="control-label">Attachments</label>
+            <div class="well">
+                <input id="attachments" type="file" multiple>
+            </div>          
+        </div>
+
+        <div class="form-group">
+          <label for="steelspec" class="control-label">Steel Specification</label>
+          <input id="steelspec" type="text" class="form-control" placeholder="Steel Specification">
+        </div>
+
+        <div class="form-group">
+            <label for="measurementdesc" class="control-label">Description of Measurement</label>
+           <textarea id="measurementdesc" type="textarea" class="form-control" placeholder="Description of Measurement"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="qtypartsmeasured" class="control-label">Qty Parts to be Measured</label>
+            <input id="qtypartsmeasured" type="text" class="form-control" placeholder="Qty Parts to be Measured">
+        </div>
+
+        <div class="form-group">
+            <label for="qtypartsbatch" class="control-label">Qty of Parts in Batch</label>
+            <input id="qtypartsbatch" type="text" class="form-control" placeholder="Qty of Parts in Batch">
+        </div>
+
+        <div class="form-group">
+            <label for="qtyfeaturesmeasured" class="control-label">Qty of Features to be Measured</label>
+            <input id="qtyfeaturesmeasured" type="text" class="form-control" placeholder="Qty of Features to be Measured">
+        </div>
+
+        <div class="form-group">
+            <label for="typeofreport" class="control-label">Type of Report</label>
+            <select id="typeofreport" class="form-control">
+              <option value=""></option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="idofparts" class="control-label">ID of parts if specific parts need measuring</label>
+           <textarea id="idofparts" type="textarea" class="form-control" placeholder="ID of parts if specific parts need measuring"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="reqraisedby" class="control-label">Request Raised By</label>
+            <input id="reqraisedby" type="text" class="form-control" placeholder="Request Raised By">
+        </div>
+
+        <div class="form-group">
+            <label for="requestdate" class="control-label">Date Request Made</label>
+            <input id="requestdate" type="date" class="form-control">
+        </div>
+
+      </form>
+    </div>
+
+  </div>
+</div>
