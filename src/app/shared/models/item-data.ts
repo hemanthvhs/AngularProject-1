@@ -1,0 +1,23 @@
+export class ItemDataModel {
+    requestno           : string ;
+    partdesc            : string ; 
+    reasonforreq        : string ;
+    partsapno           : string ;
+    bdpono              : string ;
+    vendorbatchno       : string ;
+    associatedtoolno    : string ;
+    productdesc         : string ;
+    colour              : string ;
+    drawingno           : string ;
+    drawingrevision     : string ;
+    steelspec           : string ;
+    measurementdesc     : string ;
+    qtypartsmeasured    : string ;
+    qtypartsbatch       : string ;
+    qtyfeaturesmeasured : string ;
+    typeofreport        : string ;
+    idofparts           : string ;
+    reqraisedby         : string ;
+    requestdate         : string ;
+    selectedfile        : File[] ;
+}

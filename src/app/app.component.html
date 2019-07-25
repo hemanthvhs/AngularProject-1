@@ -1,124 +1,219 @@
-<div class="jumbotron">
+  <div class="main-div">
   <div class="container">
+    <div class="child-div">
     <div class="row col-xs-6">
-      <form>
-        <div class="form-group">
+      <form [formGroup]="metrologyForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.requestno}">
           <label for="requestno" class="control-label">Request Number</label>
-          <input id="requestno" type="text" class="form-control" placeholder="Request Number">
+          <input id="requestno" type="text" class="form-control" formControlName="requestno" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+          <span class="help-block">
+            {{formErrors.requestno}}
+          </span>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.partdesc}">
             <label for="partdesc" class="control-label">Part Description</label>
-           <textarea id="partdesc" type="textarea" class="form-control" placeholder="Part Description"></textarea>
-        </div>
+           <textarea id="partdesc" type="textarea" class="form-control" formControlName="partdesc" (blur)="logValidationMessagestoformErrors(metrologyForm)"></textarea>
+           <span class="help-block">
+              {{formErrors.partdesc}}
+            </span>
+          </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.reasonforreq}">
             <label for="reasonforreq" class="control-label">Reason For Request</label>
-            <select id="reasonforreq" class="form-control">
+            <select id="reasonforreq" class="form-control" formControlName="reasonforreq" (blur)="logValidationMessagestoformErrors(metrologyForm)">
               <option value=""></option>
+              <option *ngFor="let reason of (reasonforRequest$ | async | sort)">{{reason}}</option>
             </select>
+            <span class="help-block">
+                {{formErrors.reasonforreq}}
+            </span>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.partsapno}">
             <label for="partsapno" class="control-label">Part SAP Number</label>
-            <input id="partsapno" type="text" class="form-control" placeholder="Part SAP Number">
+            <input id="partsapno" type="text" class="form-control" formControlName="partsapno" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+            <span class="help-block">
+                {{formErrors.partsapno}}
+            </span>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.bdpono}">
             <label for="bdpono" class="control-label">BD PO Number</label>
-            <input id="bdpono" type="text" class="form-control" placeholder="BD PO Number">
+            <input id="bdpono" type="text" class="form-control" formControlName="bdpono" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+            <span class="help-block">
+                {{formErrors.bdpono}}
+            </span>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.vendorname}">
+            <label for="vendorname" class="control-label">Vendors Name</label>
+            <input id="vendorname" type="text" class="form-control" formControlName="vendorname" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+            <span class="help-block">
+                {{formErrors.vendorname}}
+            </span>
+          </div>
+
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.vendorbatchno}">
             <label for="vendorbatchno" class="control-label">Vendors Batch Number</label>
-            <input id="vendorbatchno" type="text" class="form-control" placeholder="Vendors Batch Number">
-        </div>
+            <input id="vendorbatchno" type="text" class="form-control" formControlName="vendorbatchno" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+            <span class="help-block">
+                {{formErrors.vendorbatchno}}
+            </span>
+          </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.associatedtoolno}">
             <label for="associatedtoolno" class="control-label">Associated Tool Number</label>
-            <input id="associatedtoolno" type="text" class="form-control" placeholder="Associated Tool Number">
-        </div>
+            <input id="associatedtoolno" type="text" class="form-control" formControlName="associatedtoolno" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+            <span class="help-block">
+                {{formErrors.associatedtoolno}}
+            </span>
+          </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.productdesc}">
             <label for="productdesc" class="control-label">Product Description</label>
-            <select id="productdesc" class="form-control">
+            <select id="productdesc" class="form-control" formControlName="productdesc" (blur)="logValidationMessagestoformErrors(metrologyForm)">
               <option value=""></option>
+              <option *ngFor="let product of (productDescription$ | async | sort) "> {{product}}</option>
             </select>
+            <span class="help-block">
+                {{formErrors.productdesc}}
+            </span>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.colour}">
             <label for="colour" class="control-label">Colour</label>
-            <select id="colour" class="form-control">
+            <select id="colour" class="form-control" formControlName="colour" (blur)="logValidationMessagestoformErrors(metrologyForm)">
               <option value=""></option>
+              <option *ngFor="let colour of (colour$ |async | sort)">{{colour}}</option>
             </select>
+            <span class="help-block">
+                {{formErrors.colour}}
+            </span>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.drawingno}">
             <label for="drawingno" class="control-label">Drawing Number</label>
-            <input id="drawingno" type="text" class="form-control" placeholder="Drawing Number">
-        </div>
+            <input id="drawingno" type="text" class="form-control" formControlName="drawingno" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+            <span class="help-block">
+                {{formErrors.drawingno}}
+            </span>
+          </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.drawingrevision}">
             <label for="drawingrevision" class="control-label">Drawing Revision</label>
-            <input id="drawingrevision" type="text" class="form-control" placeholder="Drawing Revision">
-        </div>
+            <input id="drawingrevision" type="text" class="form-control" formControlName="drawingrevision" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+            <span class="help-block">
+                {{formErrors.drawingrevision}}
+            </span>
+          </div>
 
         <div class="form-group">
             <label for="attachments" class="control-label">Attachments</label>
             <div class="well">
-                <input id="attachments" type="file" multiple>
-            </div>          
+                <input id="attachments" type="file" multiple (change)="onFileSelected($event)" formControlName="attachments">
+                <br><br>
+                <div *ngIf = "selectedFile.length > 0" class="list-group">
+                  <div class="list-group-item" *ngFor="let file of selectedFile;let idx=index">
+                    {{file.fileName}} 
+                    <input id="deleteimg" class="pull-right" type="image" src="../assets/deleteimg.png" (click)="removeSelectedFile(idx)" alt="Delete" width="39" height="30">
+                  </div>
+                </div>            
+              </div>          
         </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.steelspec}">
           <label for="steelspec" class="control-label">Steel Specification</label>
-          <input id="steelspec" type="text" class="form-control" placeholder="Steel Specification">
+          <input id="steelspec" type="text" class="form-control" formControlName="steelspec" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+          <span class="help-block">
+              {{formErrors.steelspec}}
+          </span>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.measurementdesc}">
             <label for="measurementdesc" class="control-label">Description of Measurement</label>
-           <textarea id="measurementdesc" type="textarea" class="form-control" placeholder="Description of Measurement"></textarea>
-        </div>
+           <textarea id="measurementdesc" type="textarea" class="form-control" formControlName="measurementdesc" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+           </textarea>
+           <span class="help-block">
+              {{formErrors.measurementdesc}}
+          </span>
+          </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.qtypartsmeasured}">
             <label for="qtypartsmeasured" class="control-label">Qty Parts to be Measured</label>
-            <input id="qtypartsmeasured" type="text" class="form-control" placeholder="Qty Parts to be Measured">
-        </div>
+            <input id="qtypartsmeasured" type="text" class="form-control" formControlName="qtypartsmeasured" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+            <span class="help-block">
+                {{formErrors.qtypartsmeasured}}
+            </span>
+          </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.qtypartsbatch}">
             <label for="qtypartsbatch" class="control-label">Qty of Parts in Batch</label>
-            <input id="qtypartsbatch" type="text" class="form-control" placeholder="Qty of Parts in Batch">
-        </div>
+            <input id="qtypartsbatch" type="text" class="form-control" formControlName="qtypartsbatch" (blur)="logValidationMessagestoformErrors(metrologyForm)">
+            <span class="help-block">
+                {{formErrors.qtypartsbatch}}
+            </span>
+          </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.qtyfeaturesmeasured}">
             <label for="qtyfeaturesmeasured" class="control-label">Qty of Features to be Measured</label>
-            <input id="qtyfeaturesmeasured" type="text" class="form-control" placeholder="Qty of Features to be Measured">
-        </div>
+            <input id="qtyfeaturesmeasured" type="text" class="form-control" formControlName="qtyfeaturesmeasured" (blur)="logValidationMessagestoformErrors(metrologyForm)" >
+            <span class="help-block">
+                {{formErrors.qtyfeaturesmeasured}}
+            </span>
+          </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.typeofreport}">
             <label for="typeofreport" class="control-label">Type of Report</label>
-            <select id="typeofreport" class="form-control">
+            <select id="typeofreport" class="form-control" formControlName="typeofreport" (blur)="logValidationMessagestoformErrors(metrologyForm)">
               <option value=""></option>
+              <option *ngFor = "let type of (typeofReport$ | async | sort)"> {{type}}</option>
             </select>
-        </div>
+            <span class="help-block">
+                {{formErrors.typeofreport}}
+            </span>
+          </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.idofparts}">
             <label for="idofparts" class="control-label">ID of parts if specific parts need measuring</label>
-           <textarea id="idofparts" type="textarea" class="form-control" placeholder="ID of parts if specific parts need measuring"></textarea>
-        </div>
+           <textarea id="idofparts" type="textarea" class="form-control" formControlName="idofparts" (blur)="logValidationMessagestoformErrors(metrologyForm)" >
+           </textarea>
+           <span class="help-block">
+              {{formErrors.idofparts}}
+          </span>
+          </div>
 
-        <div class="form-group">
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.reqraisedby}">
             <label for="reqraisedby" class="control-label">Request Raised By</label>
-            <input id="reqraisedby" type="text" class="form-control" placeholder="Request Raised By">
+            <input id="reqraisedby" type="text" class="form-control" formControlName="reqraisedby"> 
+            <span class="help-block">
+                {{formErrors.reqraisedby}}
+            </span>
+          </div>
+
+        <div class="form-group" [ngClass]="{'has-error' : formErrors.requestdate}">
+            <label for="requestdate" class="control-label">Date Request Made</label>
+            <input id="requestdate" type="date" class="form-control" formControlName="requestdate" >
+            <span class="help-block">
+                {{formErrors.requestdate}}
+            </span>
+          </div>
+
+        <br><br>
+        <div class="btn-toolbar">
+            <button class="btn btn-primary" type="submit">Submit</button>
+            <button class="btn btn-primary" type="button">Reset</button>
         </div>
 
-        <div class="form-group">
-            <label for="requestdate" class="control-label">Date Request Made</label>
-            <input id="requestdate" type="date" class="form-control">
-        </div>
+        <br><br>
+        
 
       </form>
     </div>
-
+    </div>
   </div>
 </div>
+
+
+

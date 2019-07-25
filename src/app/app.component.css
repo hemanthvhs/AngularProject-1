@@ -1,3 +1,32 @@
+
+div.container {
+   
+    margin-left : 400px;
+  
+}
+div.main-div {
+    
+    background-color : #CCE5FF
+}
+
+div.child-div {
+    margin-top : 80px
+}
+
+div.btn-toolbar {
+    margin-left : 180px
+}
+
+input#attachments {
+    width: 100px;
+}
+
+input#deleteimg {
+    width: 39px;
+    height: 30px;
+}
+
+
 textarea {
     height:100px
 }
